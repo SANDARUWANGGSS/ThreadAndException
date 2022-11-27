@@ -5,11 +5,17 @@ import java.util.Scanner;
 public class BankDemo {
     public static void main(String args[])
     {
+        boolean state = true;
+
         Scanner scanner1 = new Scanner(System.in);
         Scanner scanner2 = new Scanner(System.in);
+
+        while (state)
+        {
         Account account = new Account(47876);
         System.out.println("Depositing Rs. 10000");
         account.deposit(10000.00);
+
 
         try {
             while (true)
@@ -33,7 +39,11 @@ public class BankDemo {
         }
         finally {
             System.out.println("Do You Want To Continue :");
-            
+            String ans = scanner2.nextLine();
+            if (ans.equalsIgnoreCase("no")) {
+                state = false;
+            }
+        }
         }
     }
 }
